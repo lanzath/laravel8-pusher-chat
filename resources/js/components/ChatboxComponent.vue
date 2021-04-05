@@ -8,7 +8,7 @@
 
         <div class="row mt-5">
             <div class="col-3">
-                <input type="text" class="form-control" v-model="textMessage"></input>
+                <input type="text" class="form-control" v-model="textMessage" />
             </div>
         </div>
 
@@ -29,7 +29,7 @@
             }
         },
         created() {
-            this.addMessage('You joined the chatbox.');
+            this.addMessage('You joined the chat.');
             Echo.channel('chatbox')
                 .listen('MessageSend', (e) => {
                     this.addMessage(e.message);
@@ -37,7 +37,7 @@
         },
         methods: {
             addMessage(message) {
-                let date= new Date();
+                let date = new Date();
                 let timestamp = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
                 this.messages.push(timestamp + ' ' + message);
             },
